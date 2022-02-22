@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 class SampleWebClientTest {
+
   protected final static WireMockServer wiremock = new WireMockServer(options().port(18080));
 
   @BeforeAll
