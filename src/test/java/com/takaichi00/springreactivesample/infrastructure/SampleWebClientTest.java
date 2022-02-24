@@ -4,11 +4,10 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 class SampleWebClientTest {
 
   protected final static WireMockServer wiremock = new WireMockServer(options().port(18080));
@@ -34,5 +33,10 @@ class SampleWebClientTest {
   @AfterAll
   static void tearDown() {
     wiremock.stop();
+  }
+
+  @Test
+  void sampleTest() {
+
   }
 }
