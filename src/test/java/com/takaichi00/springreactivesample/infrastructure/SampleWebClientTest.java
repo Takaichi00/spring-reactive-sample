@@ -1,5 +1,6 @@
 package com.takaichi00.springreactivesample.infrastructure;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
@@ -37,6 +38,10 @@ class SampleWebClientTest {
 
   @Test
   void sampleTest() {
-
+    wiremock.stubFor(get(urlEqualTo("/get"))
+        .willReturn(aResponse()
+            .withStatus(200)
+            .withHeader("Content-Type", "application/json")
+            .withBody("{\"item1\":\"value1\"}")));
   }
 }
